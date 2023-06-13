@@ -1,0 +1,9 @@
+---
+- name: This up an https webserver
+  hosts: all
+  tasks:
+    - yum: name=httpd state=present
+    - service: name-httpd state-started
+    - file: dest=/opt/test.txt state=touch
+    - copy: dest=/var/www/html/ src="index.html"
+...

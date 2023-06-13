@@ -1,0 +1,1 @@
+ansible-playbook -i 123.43.12.101 playbook.yaml -u ec2-user --key-file=remote.pem -b
