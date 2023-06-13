@@ -1,0 +1,11 @@
+#################################################
+What is INVENTORY
+    LIST of ipaddress.
+            - can be on command line 
+            - can be in file [INI]
+            - can be script
+
+        It has GROUP
+        It has BEHAVIOURALS Parameters.
+        It has vars.
+        It has GROUP of GROUP 
