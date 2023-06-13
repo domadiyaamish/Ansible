@@ -63,16 +63,21 @@ These are just a few examples of the environment variables used in Ansible.
         Playbook conditioning in Ansible refers to the ability to define conditions that determine whether a task or a set of tasks should be executed or skipped during playbook execution. It allows you to control the flow of execution based on specific conditions. This conditioning can be achieved using the "when" keyword in tasks or by using conditionals in Jinja2 templates.
 
     - Playbook Iteration
+        Playbook iteration in Ansible refers to the ability to perform iterative operations or execute tasks repeatedly for a list of items. It allows you to apply the same set of tasks or configuration changes to multiple hosts or a group of variables.
 
     - Playbook Running ext scripts
-
+        In Ansible, you can run external scripts or commands as part of your automation tasks using the "command" or "shell" modules. These modules allow you to execute arbitrary commands on remote hosts.
+        
     - Playbook - templaters
+        In Ansible, templating refers to the ability to dynamically generate configuration files or other text-based files using variables and templates. Templating allows you to create reusable and customizable configuration files by incorporating variable values and logic into the templates. Ansible uses Jinja2 as its default templating engine, which provides a powerful and flexible way to generate files based on templates.
 
     - Playbook - Handlers
+        Handlers in Ansible are tasks that are associated with specific events and are triggered only when those events occur. They are used to respond to changes in the system state or specific conditions that need to be addressed. Handlers are typically defined in playbooks and executed at the end of a play or when explicitly called.
 
     - Exception Handling using Block
 
     - Ansible Roles
+        In Ansible, roles are a way to organize and structure your playbooks and tasks into reusable units. Roles provide a modular approach to defining and managing configurations, making it easier to share and maintain your automation code. Here's a brief explanation of roles in Ansible:
 
     - Ansible Galaxy
 
