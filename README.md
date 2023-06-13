@@ -1,4 +1,4 @@
 # Ansible
 What is Ansible?
-  Configuration management tool
+Configuration management tool
 
