@@ -57,8 +57,10 @@ Overall, Ansible simplifies the process of automating IT tasks and enables effic
 These are just a few examples of the environment variables used in Ansible.
 
     - Fact Variables
+        In Ansible, fact variables are automatically generated variables that provide information about the managed hosts or the execution environment. These variables are collected by Ansible when it connects to the hosts and gathers information about their configuration, operating system, hardware, and other details.
 
     - Playbook Coditioning
+        Playbook conditioning in Ansible refers to the ability to define conditions that determine whether a task or a set of tasks should be executed or skipped during playbook execution. It allows you to control the flow of execution based on specific conditions. This conditioning can be achieved using the "when" keyword in tasks or by using conditionals in Jinja2 templates.
 
     - Playbook Iteration
 
