@@ -1,0 +1,30 @@
+
+####################################################################
+Environment variable
+####################################################################  
+playbook.yaml #file
+---
+- name: This sets up an httpd webserver
+  hosts: web
+  vars:
+    name: "amish doamdiya"
+    message: "Hello everyone"
+    package: httpd
+ 
+  tasks:
+  - name: Install the httpd apps
+    yum: name={{ package }} state=present
+  - name: start the httpd service
+    service: name={{ package }} state=started
+  - name: create a empty file
+    file: dest=/opt/test/txt state=touch
+  - name: copy a file 
+    copy: dest=/var/www/html/ src="index.html"
+  - debug:
+      msg: My name is {{ name }} and my message is {{ message}}
+
+
+vars.yaml #file 
+name: "amish doamdiya govindbhai"
+message: "Hello everyone"
+package: httpd
