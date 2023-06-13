@@ -1,0 +1,55 @@
+Ansible Localhost
+Project - Setup a Web Server in RHEL
+
+################################################################################
+
+command
+
+#################################################################################
+
+- Psucode                                              module      
+Step 1 - Install (HTTPD) Package                       YUM         
+https://docs.ansible.com/ansible/latest/collections/ansible/builtin/yum_module.html
+
+Step 2 - Copy a index.html to /var/www/html            COPY
+https://docs.ansible.com/ansible/latest/collections/ansible/builtin/copy_module.html
+
+step 3 - Start a service                               SERVICE
+https://docs.ansible.com/ansible/latest/collections/ansible/builtin/service_module.html
+
+
+#################################################################################
+
+ansible command
+
+#################################################################################
+
+step1: for install a httpd 
+- ansible localhost -m yum -a "name=httpd state=install"
+
+step2: copy a index.html to var/www/html
+- ansible localhost -m copy -a"src=index.html dest="/var/www/html"
+
+step3 start the server
+- ansible localhost -m server -a"name=httpd state=started"
+
+##################################################################################
+
+index.html file 
+
+###################################################################################
+
+
+<html>
+<head>
+<title>
+This is world of Ansible
+</title>
+</head>
+<h1> Welcome to DevOpsSchool.com Anisnle Classes </h1>
+</body>
+</html>
+
+
+
+
