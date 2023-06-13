@@ -45,21 +45,14 @@ Overall, Ansible simplifies the process of automating IT tasks and enables effic
     - Environment Variables
        In Ansible, environment variables are used to store and access information that can be used across playbooks, tasks, and roles. They provide a way to pass dynamic           values or configuration settings to Ansible during execution. Here's a brief explanation of Ansible environment variables:
 
-        ANSIBLE_CONFIG: This variable allows you to specify the location of the Ansible configuration file. It can be set to the path of a specific configuration file to    override the default settings.
-
-ANSIBLE_INVENTORY: It defines the location of the inventory file, which contains information about the managed hosts. By setting this variable, you can use a different inventory file than the default one.
-
-ANSIBLE_REMOTE_USER: Specifies the username used for SSH connections to managed hosts. It allows you to override the default user defined in the inventory or playbooks.
-
-ANSIBLE_PRIVATE_KEY_FILE: This variable holds the path to the private key file used for SSH authentication. It can be set if you want to use a specific key file instead of the default SSH key.
-
-ANSIBLE_VAULT_PASSWORD_FILE: If you use Ansible Vault for encrypting sensitive data, this variable allows you to specify the path to a file containing the password for decrypting the vault-encrypted files.
-
-ANSIBLE_CALLBACK_PLUGINS: Specifies the path to custom callback plugins. Callback plugins are used to customize the output and behavior of Ansible during playbook execution.
-
-ANSIBLE_LIBRARY and ANSIBLE_MODULE_UTILS: These variables define the location of custom Ansible modules and module utilities, respectively. You can use them to extend Ansible's functionality by providing your own modules or utilities.
-
-ANSIBLE_RETRY_FILES_ENABLED: When set to "False," this variable disables the creation of retry files, which are used to track failed tasks and allow for automatic retries on subsequent playbook runs.
+       ANSIBLE_CONFIG: This variable allows you to specify the location of the Ansible configuration file. It can be set to the path of a specific configuration file to    override the default settings.
+       ANSIBLE_INVENTORY: It defines the location of the inventory file, which contains information about the managed hosts. By setting this variable, you can use a different inventory file than the default one.
+       ANSIBLE_REMOTE_USER: Specifies the username used for SSH connections to managed hosts. It allows you to override the default user defined in the inventory or playbooks.
+       ANSIBLE_PRIVATE_KEY_FILE: This variable holds the path to the private key file used for SSH authentication. It can be set if you want to use a specific key file instead of the default SSH key.
+       ANSIBLE_VAULT_PASSWORD_FILE: If you use Ansible Vault for encrypting sensitive data, this variable allows you to specify the path to a file containing the password for decrypting the vault-encrypted files.
+       ANSIBLE_CALLBACK_PLUGINS: Specifies the path to custom callback plugins. Callback plugins are used to customize the output and behavior of Ansible during playbook execution.
+       ANSIBLE_LIBRARY and ANSIBLE_MODULE_UTILS: These variables define the location of custom Ansible modules and module utilities, respectively. You can use them to extend Ansible's functionality by providing your own modules or utilities.
+       ANSIBLE_RETRY_FILES_ENABLED: When set to "False," this variable disables the creation of retry files, which are used to track failed tasks and allow for automatic retries on subsequent playbook runs.
 
 These are just a few examples of the environment variables used in Ansible.
 
