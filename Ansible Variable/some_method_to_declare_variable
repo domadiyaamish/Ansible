@@ -1,0 +1,173 @@
+####################################################################
+Normal varaible declariation
+####################################################################
+---
+- name: This sets up an httpd webserver
+  hosts: web
+  vars:
+    name: "amish doamdiya"
+    message: "Hello everyone"
+    package: httpd
+  
+  tasks:
+  - name: Install the httpd apps
+    yum: name={{ package }} state=present
+  - name: start the httpd service
+    service: name={{ package }} state=started
+  - name: create a empty file
+    file: dest=/opt/test/txt state=touch
+  - name: copy a file 
+    copy: dest=/var/www/html/ src="index.html"
+  - debug:
+      msg: My name is {{ name }} and my message is {{ message}}
+...
+
+####################################################################
+variable declare in varsl.yaml file 
+####################################################################  
+playbook.yaml #file
+---
+- name: This sets up an httpd webserver
+  hosts: web
+  vars:
+    name: "amish doamdiya"
+    message: "Hello everyone"
+    package: httpd
+  vars_file:
+    - vars.yaml      #override the value of vars which is present in vars
+  tasks:
+  - name: Install the httpd apps
+    yum: name={{ package }} state=present
+  - name: start the httpd service
+    service: name={{ package }} state=started
+  - name: create a empty file
+    file: dest=/opt/test/txt state=touch
+  - name: copy a file 
+    copy: dest=/var/www/html/ src="index.html"
+  - debug:
+      msg: My name is {{ name }} and my message is {{ message}}
+...
+
+vars.yaml #file 
+name: "amish doamdiya govindbhai"
+message: "Hello everyone"
+package: httpd
+
+####################################################################
+variable prompt declare
+####################################################################  
+playbook.yaml #file
+---
+- name: This sets up an httpd webserver
+  hosts: web
+  vars:
+    name: "amish doamdiya"
+    message: "Hello everyone"
+    package: httpd
+  vars_file:
+    - vars.yaml      #override the value of vars which is present in vars
+  vars_prompt:
+    - name: "Version"
+      prompt: "user will enter the date over here"
+  tasks:
+  - name: Install the httpd apps
+    yum: name={{ package }} state=present
+  - name: start the httpd service
+    service: name={{ package }} state=started
+  - name: create a empty file
+    file: dest=/opt/test/txt state=touch
+  - name: copy a file 
+    copy: dest=/var/www/html/ src="index.html"
+  - debug:
+      msg: My name is {{ name }} and my message is {{ message}}
+  - debug:
+      msg: Message is  {{ version }}
+...
+
+vars.yaml #file 
+name: "amish doamdiya govindbhai"
+message: "Hello everyone"
+package: httpd
+
+####################################################################
+variable at task level is declare
+####################################################################  
+playbook.yaml #file
+---
+- name: This sets up an httpd webserver
+  hosts: web
+  vars:
+    name: "amish doamdiya"
+    message: "Hello everyone"
+    package: httpd
+  vars_file:
+    - vars.yaml      #override the value of vars which is present in vars
+  vars_prompt:
+    - name: "Version"
+      prompt: "user will enter the date over here"
+  tasks:
+  - name: include default step varaible
+    include_vars: vars-tasks.yaml                   # file 
+  - name: Install the httpd apps
+    yum: name={{ package }} state=present
+  - name: start the httpd service
+    service: name={{ package }} state=started
+  - name: create a empty file
+    file: dest=/opt/test/txt state=touch
+  - name: copy a file 
+    copy: dest=/var/www/html/ src="index.html"
+  - debug:
+      msg: My name is {{ name }} and my message is {{ message}}
+  - debug:
+      msg: Message is  {{ version }}
+...
+
+vars.yaml #file 
+name: "amish doamdiya govindbhai"
+message: "Hello everyone"
+package: httpd
+
+
+
+####################################################################
+variable register declare    (output of one module is store in one variable)
+####################################################################  
+playbook.yaml #file
+---
+- name: This sets up an httpd webserver
+  hosts: web
+  vars:
+    name: "amish doamdiya"
+    message: "Hello everyone"
+    package: httpd
+  vars_file:
+    - vars.yaml      #override the value of vars which is present in vars
+  vars_prompt:
+    - name: "Version"
+      prompt: "user will enter the date over here"
+  tasks:
+  - name: Install the httpd apps
+    yum: name={{ package }} state=present
+  - name: start the httpd service
+    service: name={{ package }} state=started
+  - name: create a empty file
+    file: dest=/opt/test/txt state=touch
+  - name: copy a file 
+    copy: dest=/var/www/html/ src="index.html"
+  - debug:
+      msg: My name is {{ name }} and my message is {{ message}}
+  - debug:
+      msg: Message is  {{ version }}
+  - name: Ansible register varaible basic example
+    shell: "find *.txt"
+    args:
+      chdir: "/root/Ansible/Ansible Variablr/vars"
+    register: find_ouptut
+  - debug:
+      msg: Prompt message is {{ find_optput }}
+...
+
+vars.yaml #file 
+name: "amish doamdiya govindbhai"
+message: "Hello everyone"
+package: httpd

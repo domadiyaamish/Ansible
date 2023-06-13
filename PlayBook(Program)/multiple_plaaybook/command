@@ -1,1 +1,1 @@
-ansible-playbook -i inventory 
+ansible-playbook -i inventory master.play
