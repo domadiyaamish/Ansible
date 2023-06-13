@@ -1,3 +1,9 @@
+#################################################################################
+optional arguments
+Connection Options              -Authentication
+Privilege Escalation Options    -Authorization
+
+
 Ansible Localhost
 Project - Setup a Web Server in RHEL
 
