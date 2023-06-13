@@ -1,0 +1,9 @@
+[web]
+130.85.41.21
+130.85.41.22
+
+[app]
+130.85.41.21
+
+[all]  -default
+[NO GROUP] -default
